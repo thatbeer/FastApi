@@ -1,0 +1,3 @@
+
+to create venv : python -m venv fastenv | fastenv >> env's name to create
+to activate : fastenv\Scripts\activate.bat | fastenv >> env's name to activate
