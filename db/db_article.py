@@ -1,12 +1,13 @@
-from importlib.resources import contents
-from nntplib import ArticleInfo
-
+from exception import StoryException
 from db.models import DbArticle
 from sqlalchemy.orm.session import Session
+from exception import StoryException
 from schemas import Article, ArticleBase
 from fastapi import HTTPException , status
 
 def create_article(db:Session, request: ArticleBase):
+    if request.context.startswith("Once upon a time"):
+        raise StoryException("no stories please")
     new_article = DbArticle(
         title = request.title,
         content = request.content,

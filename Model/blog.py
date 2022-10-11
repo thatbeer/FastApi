@@ -11,8 +11,8 @@ class Image(BaseModel):
 class BlogModel(BaseModel):
     title: str
     content: str
-    published : bool | None
+    published : Optional[bool] = None
     nb_comments: int
     tags : List[str] = []
     metadata : Dict[str,str] = {'key1':'val1'}
-    image: Image | None = None 
+    image: Optional[Image]  = None 
