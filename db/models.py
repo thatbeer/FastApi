@@ -21,5 +21,3 @@ class DbArticle(Base):
   published = Column(Boolean)
   user_id = Column(Integer, ForeignKey('users.id'))
   user = relationship("DbUser", back_populates='items')
-  
-  
