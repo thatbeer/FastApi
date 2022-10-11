@@ -7,6 +7,7 @@ router = APIRouter(
     tags=['blog']
 )
 
+
 @router.post('/')
 def create_blog(blog : BlogModel, id :int,version : int = 1):
     return {
