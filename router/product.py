@@ -1,8 +1,11 @@
 from distutils.sysconfig import customize_compiler
 from http.client import responses
+from multiprocessing.connection import wait
 from fastapi import APIRouter, Cookie , Header , Form
 from fastapi.responses import HTMLResponse , PlainTextResponse , Response
 from typing import Optional , List
+from custom_log import log 
+import time
 
 router = APIRouter(
     prefix='/product',
@@ -10,6 +13,11 @@ router = APIRouter(
 )
 
 products = ['watch','camera','phone']
+
+
+async def time_consuming_functionality():
+    time.sleep(6)
+    return "who awake me"
 
 
 @router.post('/new')
@@ -20,6 +28,7 @@ def create_product(name: str = Form(...)):
 
 @router.get('/all')
 def get_all_product():
+    ##log("MY API CALL THIS LOG FROM GET ALL PRODUCT")
     #return products
     data = " ".join(products)
     response = Response(content=data,media_type="text_plain")
