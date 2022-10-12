@@ -8,3 +8,6 @@ passlib
 bcrypt
 python-multipart
 python-jose
+jinja2
+aiofiles
+websockets
