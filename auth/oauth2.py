@@ -1,4 +1,3 @@
-from aiohttp import Payload
 from fastapi import Depends
 from fastapi.security import OAuth2PasswordBearer
 from typing import Optional
